@@ -49,7 +49,4 @@ public class DigitalVideoDisc {
         this.cost = cost;
         this.length = length;
     }
-
-    // equals
-
 }
