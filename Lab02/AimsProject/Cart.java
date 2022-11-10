@@ -22,7 +22,11 @@ public class Cart {
             qtyOrdered--;
             for (int i = 0; i < itemsOrdered.length; ++i) {
                 if (disc.equals(itemsOrdered[i])) {
-
+                    for (int j = i; j < itemsOrdered.length - 1; ++j) {
+                        itemsOrdered[j] = itemsOrdered[j + 1];
+                    }
+                    itemsOrdered[itemsOrdered.length - 1] = null; // set last element to null
+                    break;
                 }
             }
         }
