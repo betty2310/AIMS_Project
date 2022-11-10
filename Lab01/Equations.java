@@ -29,6 +29,9 @@ public class Equations {
         }
     }
 
+    /***
+     * The first-degree equation (linear equation) with one variable
+     */
     private static void secondDegreeEquationWithOneVariable() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Please enter the value of a: ");
@@ -55,6 +58,9 @@ public class Equations {
         }
     }
 
+    /**
+     * The system of first-degree equations (linear system) with two variables
+     */
     private static void firstDegreeEquationWithTwoVariables() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Please enter the value of a11: ");
