@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Cart {
     public static final int MAX_NUMBER_ORDERED = 20;
     private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBER_ORDERED];
@@ -51,5 +53,39 @@ public class Cart {
             ++i;
         }
         return sum;
+    }
+
+    public void prinCast() {
+        System.out.println("***********************CART***********************\nOrdered Items:");
+        for (int i = 0; i < qtyOrdered; ++i) {
+            System.out.println(i + 1 + ". " + itemsOrdered[i].toString() + "\n");
+        }
+        System.out.println("Total cost: " + totalCost() + "\n***************************************************");
+
+    }
+
+    public void searchDVDByID() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the ID of the DVD: ");
+        String id = sc.nextLine();
+        Integer idInt = Integer.parseInt(id);
+        if (idInt < qtyOrdered) {
+            System.out.println("The DVD is in the cart!");
+        } else {
+            System.out.println("The DVD is not in the cart!");
+        }
+    }
+
+    public void searchDVDByTitle() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the Title of the DVD: ");
+        String title = sc.nextLine();
+        for (int i = 0; i < qtyOrdered; ++i) {
+            if (itemsOrdered[i].isMatch(title)) {
+                System.out.println("The DVD is in the cart!");
+                return;
+            }
+        }
+        System.out.println("The DVD is not in the cart!");
     }
 }
