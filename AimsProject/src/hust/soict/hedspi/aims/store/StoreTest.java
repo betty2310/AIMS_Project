@@ -1,17 +1,17 @@
-package hust.soict.dsai.aims;
+package src.hust.soict.hedspi.aims.store;
 
-import hust.soict.dsai.aims.cart.Cart;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import src.hust.soict.hedspi.aims.disc.DigitalVideoDisc;
+import src.hust.soict.hedspi.aims.store.Store;
 
-public class Aims {
+public class StoreTest {
     public static void main(String[] args) {
-        Cart anOrder = new Cart();
+        Store store = new Store();
         DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
-        anOrder.addDigitalVideoDisc(dvd1);
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
-        anOrder.addDigitalVideoDisc(dvd2);
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
-        anOrder.addDigitalVideoDisc(dvd3);
-        anOrder.prinCast();
+        store.addDVD(dvd1);
+        store.addDVD(dvd2);
+        store.addDVD(dvd3);
+        store.removeDVD(dvd2);
     }
 }

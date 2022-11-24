@@ -1,8 +1,8 @@
-package hust.soict.dsai.aims.cart;
+package src.hust.soict.hedspi.aims.cart;
 
 import java.util.Scanner;
 
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import src.hust.soict.hedspi.aims.disc.DigitalVideoDisc;
 
 public class Cart {
     public static final int MAX_NUMBER_ORDERED = 20;

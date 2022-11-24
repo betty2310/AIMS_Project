@@ -1,8 +1,8 @@
-package hust.soict.dsai.aims.store;
+package src.hust.soict.hedspi.aims.store;
 
 import java.util.Vector;
 
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import src.hust.soict.hedspi.aims.disc.DigitalVideoDisc;
 
 public class Store {
     private Vector<DigitalVideoDisc> itemsInStore = new Vector<DigitalVideoDisc>();
