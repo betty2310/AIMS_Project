@@ -58,6 +58,14 @@ OtherProjects
          │  └── Requirement
          │     ├── UseCase.png
          │     └── useCase.asta
-         └── Lab03
-            └── answer.txt
+         ├── Lab03
+         │  └── answer.txt
+         └── garbage
+            ├── ConcatenationInLoops.java
+            ├── GarbageCreater.java
+            ├── NoGarbage.java
+            ├── NoGarbage.png
+            ├── README.md
+            ├── garbageCreater.png
+            └── input          
 ```
