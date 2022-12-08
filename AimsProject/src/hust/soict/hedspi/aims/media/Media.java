@@ -78,4 +78,6 @@ public abstract class Media {
         return false;
     }
 
+    public abstract void play();
+
 }
