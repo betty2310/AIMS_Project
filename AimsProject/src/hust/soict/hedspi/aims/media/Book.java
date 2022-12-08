@@ -6,8 +6,8 @@ import java.util.List;
 public class Book extends Media {
     private List<String> authors = new ArrayList<String>();
 
-    public Book() {
-
+    public Book(String string, String string2, float f) {
+        super(string, string2, f);
     }
 
     /**
@@ -38,5 +38,15 @@ public class Book extends Media {
         }
         System.out.println("Author is not exist");
         return false;
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer str = new StringBuffer();
+        str.append("Book - " + this.getTitle() + " - " + this.getCategory() + " - : Author: ");
+        for (String author : authors) {
+            str.append(author + " ");
+        }
+        return str.toString();
     }
 }
