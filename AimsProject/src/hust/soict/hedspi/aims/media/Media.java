@@ -73,7 +73,7 @@ public abstract class Media {
     }
 
     public boolean isMatch(String st) {
-        if (this.title.contains(st))
+        if (this.title.equals(st))
             return true;
         return false;
     }
