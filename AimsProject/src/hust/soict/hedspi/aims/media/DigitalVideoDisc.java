@@ -1,15 +1,12 @@
-package src.hust.soict.hedspi.aims.disc;
+package src.hust.soict.hedspi.aims.media;
 
-public class DigitalVideoDisc {
+public class DigitalVideoDisc extends Media {
     private static int nbDigitalVideoDiscs = 0;
-    private String title;
-    private String category;
-    private String director;
     private int length;
-    private float cost;
+    private String director;
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {

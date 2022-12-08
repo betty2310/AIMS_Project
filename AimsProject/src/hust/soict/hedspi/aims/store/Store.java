@@ -2,7 +2,7 @@ package src.hust.soict.hedspi.aims.store;
 
 import java.util.Vector;
 
-import src.hust.soict.hedspi.aims.disc.DigitalVideoDisc;
+import src.hust.soict.hedspi.aims.media.DigitalVideoDisc;
 
 public class Store {
     private Vector<DigitalVideoDisc> itemsInStore = new Vector<DigitalVideoDisc>();
