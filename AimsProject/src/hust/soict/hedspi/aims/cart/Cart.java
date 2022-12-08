@@ -73,4 +73,32 @@ public class Cart {
     public void sortCartByCost() {
         itemsOrdered.sort(Media.COMPARE_BY_COST_TITLE);
     }
+
+    public int getQty() {
+        return itemsOrdered.size();
+    }
+
+    public void filterByTitle(String st) {
+        for (Media media : itemsOrdered) {
+            if (media.isMatch(st)) {
+                System.out.println(media.toString());
+            }
+        }
+    }
+
+    public Media searchCart(String st) {
+        for (Media media : itemsOrdered) {
+            if (media.isMatch(st)) {
+                return media;
+            }
+        }
+        return null;
+    }
+
+    public void newCart() {
+        // remove all items in itemsOrderd;
+        itemsOrdered.clear();
+
+    }
+
 }
