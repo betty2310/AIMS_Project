@@ -58,4 +58,10 @@ public abstract class Media {
         this.cost = cost;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        // TODO Auto-generated method stub
+        return this.title == ((Media) obj).title;
+    }
+
 }
