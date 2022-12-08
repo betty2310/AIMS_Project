@@ -3,6 +3,7 @@ package src.hust.soict.hedspi.aims;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.IntPredicate;
 
 import src.hust.soict.hedspi.aims.cart.Cart;
 import src.hust.soict.hedspi.aims.media.Book;
@@ -60,27 +61,28 @@ public class Aims {
     }
 
     public static void main(String[] args) {
+        Cart cart = new Cart();
         Store store = new Store();
         data(store);
-        showMenu();
-        Scanner input = new Scanner(System.in);
-        switch (input.nextInt()) {
-            case 1: {
-                viewStore(store);
+        while (true) {
+            showMenu();
+            Scanner input = new Scanner(System.in);
+            int choice = input.nextInt();
+            if (choice == 1) {
+                viewStore(store, cart);
             }
-            case 2: {
-
+            if (choice == 2) {
+                updateStore(store);
             }
-            case 3: {
-
+            if (choice == 3) {
+                cart.prinCast();
+                handleCartMenu(cart);
             }
-            case 0: {
-                System.out.println("Exit!!!!!");
+            if (choice == 0) {
                 break;
             }
-            default:
-                break;
         }
+
     }
 
     private static void data(Store store) {
@@ -106,9 +108,149 @@ public class Aims {
         store.addMedia(d2);
     }
 
-    private static void viewStore(Store store) {
+    private static void viewStore(Store store, Cart cart) {
         store.printStore();
-        storeMenu();
+        while (true) {
+            storeMenu();
+            Scanner input = new Scanner(System.in);
+            int choice = input.nextInt();
+            if (choice == 1) {
+                System.out.print("Enter title of media: ");
+                input.nextLine();
+                String st = input.nextLine();
+                Media res = store.searchStore(st);
+                if (res != null) {
+                    System.out.println(res.toString());
+                    mediaDetailsMenu();
+                    handleDetailsMenu(res, cart);
+                } else {
+                    System.out.println("Not found");
+                }
+            }
+            if (choice == 2) {
+                System.out.print("Enter title of media: ");
+                input.nextLine();
+                String st = input.nextLine();
+                Media res = store.searchStore(st);
+                if (res != null && cart.addMedia(res)) {
+                    System.out.println("Add " + res.getTitle() + " to cart");
+                    System.out.println("Current cart have " + cart.getQty() + " medias");
+                } else {
+                    System.out.println("Not found");
+                }
+
+            }
+            if (choice == 3) {
+                System.out.print("Enter title of media: ");
+                input.nextLine();
+                String st = input.nextLine();
+                Media res = store.searchStore(st);
+                if (res != null) {
+                    res.play();
+                } else {
+                    System.out.println("Not found");
+                }
+            }
+            if (choice == 4) {
+                cart.prinCast();
+            }
+            if (choice == 0) {
+                System.out.println("Exit Store view");
+                break;
+            }
+        }
     }
 
+    private static void handleDetailsMenu(Media res, Cart cart) {
+        Scanner input = new Scanner(System.in);
+        int choice = input.nextInt();
+        if (choice == 1) {
+            if (cart.addMedia(res)) {
+                System.out.println("Add " + res.getTitle() + " to cart");
+            }
+        }
+        if (choice == 2) {
+            res.play();
+        }
+        if (choice == 0) {
+            System.out.println("Exit media details view");
+        }
+    }
+
+    private static void handleCartMenu(Cart cart) {
+        while (true) {
+            cartMenu();
+            Scanner input = new Scanner(System.in);
+            int choice = input.nextInt();
+            if (choice == 1) {
+                System.out.print("Filter medias in cart by id/title ? (0:1): ");
+                int option = input.nextInt();
+                if (option == 1) {
+                    System.out.print("Enter title: ");
+                    input.nextLine();
+                    String st = input.nextLine();
+                    cart.filterByTitle(st);
+                } else {
+                }
+            }
+            if (choice == 2) {
+                System.out.print("Sort medias in cart by title/cost ? (0:1): ");
+                int option = input.nextInt();
+                if (option == 1) {
+                    cart.sortCartByCost();
+                    cart.prinCast();
+                } else {
+                    cart.sortCartByTitle();
+                    cart.prinCast();
+                }
+            }
+            if (choice == 3) {
+                System.out.print("Enter title of media: ");
+                input.nextLine();
+                String st = input.nextLine();
+                Media res = cart.searchCart(st);
+                if (res != null) {
+                    cart.removeMedia(res);
+                    System.out.println("Deleted " + res.getTitle());
+                    cart.prinCast();
+                } else {
+                    System.out.println("Not found");
+                }
+            }
+            if (choice == 4) {
+                System.out.print("Enter title of media: ");
+                input.nextLine();
+                String st = input.nextLine();
+                Media res = cart.searchCart(st);
+                if (res != null) {
+                    res.play();
+                } else {
+                    System.out.println("Not found");
+                }
+            }
+            if (choice == 5) {
+                System.out.println("An order is created!");
+                cart.newCart();
+            }
+            if (choice == 0) {
+                System.out.println("Exit cart view");
+                break;
+            }
+        }
+    }
+
+    private static void updateStore(Store store) {
+        System.out.println("Delete a media from store");
+        System.out.print("Enter title of media: ");
+        Scanner input = new Scanner(System.in);
+        String st = input.nextLine();
+        Media res = store.searchStore(st);
+        if (res != null) {
+            store.removeMedia(res);
+            System.out.println("Deleted " + res.getTitle());
+        } else {
+            System.out.println("Not found");
+        }
+
+    }
 }
