@@ -54,10 +54,11 @@ public class CompactDisc extends Disc implements Playable {
     public String toString() {
         // TODO Auto-generated method stub
         StringBuffer str = new StringBuffer();
-        str.append("Artist: " + this.getArtist());
+        str.append("Compact Disc - Artist: " + this.getArtist() + ": ");
         for (Track track : tracks) {
-            str.append(track.toString());
+            str.append(track.toString() + ", ");
         }
+        str.append(": " + this.getCost() + "$");
         return str.toString();
     }
 
