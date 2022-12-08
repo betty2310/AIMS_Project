@@ -10,25 +10,41 @@ In line twenty-two 2️⃣2️⃣
 ```bash
 AimsProject
 ├── Design
+│  ├── Class.png
+│  └── class.asta
 ├── Requirement
+│  ├── UseCase.png
+│  └── useCase.asta
 └── src
    └── hust
       └── soict
          └── hedspi
-            └── aims
+            ├── aims
+            │  ├── cart
+            │  │  └── Cart.java
+            │  ├── media
+            │  │  ├── Book.java
+            │  │  ├── CompactDisc.java
+            │  │  ├── DigitalVideoDisc.java
+            │  │  ├── Disc.java
+            │  │  ├── Media.java
+            │  │  ├── Playable.java
+            │  │  └── Track.java
+            │  ├── store
+            │  │  └── Store.java
+            │  ├── utils
+            │  │  ├── MediaComparatorByCostTitle.java
+            │  │  └── MediaComparatorByTitleCost.java
+            │  └── Aims.java
+            └── test
                ├── cart
-               │  ├── Cart.java
                │  └── CartTest.java
                ├── disc
-               │  └── DigitalVideoDisc.java
-               ├── store
-               │  ├── Store.java
-               │  └── StoreTest.java
-               ├── Aims.java
-               └── TestPassingParameter.java
+               │  └── TestPassingParameter.java
+               └── store
+                  └── StoreTest.java
 
 ```
-
 ## Other project structre
 ```bash
 OtherProjects
