@@ -1,6 +1,10 @@
 package src.hust.soict.hedspi.aims.store;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import javax.print.FlavorException;
+
 import src.hust.soict.hedspi.aims.media.Media;
 
 public class Store {
@@ -33,5 +37,14 @@ public class Store {
         for (Media media : itemsInStore) {
             System.out.println(media.toString());
         }
+    }
+
+    public Media searchStore(String st) {
+        for (Media media : itemsInStore) {
+            if (media.isMatch(st)) {
+                return media;
+            }
+        }
+        return null;
     }
 }
