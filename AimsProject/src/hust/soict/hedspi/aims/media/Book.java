@@ -43,7 +43,7 @@ public class Book extends Media {
     @Override
     public String toString() {
         StringBuffer str = new StringBuffer();
-        str.append("Book - " + this.getTitle() + " - " + this.getCategory() + "- Author: ");
+        str.append("(Book): " + this.getTitle() + " - " + this.getCategory() + " - ");
         for (String author : authors) {
             str.append(author + ", ");
         }
