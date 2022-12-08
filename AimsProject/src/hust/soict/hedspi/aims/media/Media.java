@@ -1,10 +1,10 @@
 package src.hust.soict.hedspi.aims.media;
 
 public abstract class Media {
-    protected int id;
-    protected String title;
-    protected String category;
-    protected float cost;
+    private int id;
+    private String title;
+    private String category;
+    private float cost;
 
     public int getId() {
         return id;
