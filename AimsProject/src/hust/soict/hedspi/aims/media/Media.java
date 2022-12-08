@@ -72,4 +72,10 @@ public abstract class Media {
         return this.title == ((Media) obj).title;
     }
 
+    public boolean isMatch(String st) {
+        if (this.title.contains(st))
+            return true;
+        return false;
+    }
+
 }
