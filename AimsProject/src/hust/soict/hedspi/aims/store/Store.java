@@ -27,4 +27,11 @@ public class Store {
         System.out.println("The media is not exist");
         return false;
     }
+
+    public void printStore() {
+        System.out.println("Store");
+        for (Media media : itemsInStore) {
+            System.out.println(media.toString());
+        }
+    }
 }
