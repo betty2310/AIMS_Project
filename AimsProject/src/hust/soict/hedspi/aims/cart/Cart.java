@@ -1,9 +1,6 @@
 package src.hust.soict.hedspi.aims.cart;
 
 import java.util.ArrayList;
-import java.util.Scanner;
-
-import src.hust.soict.hedspi.aims.media.DigitalVideoDisc;
 import src.hust.soict.hedspi.aims.media.Media;
 
 public class Cart {
