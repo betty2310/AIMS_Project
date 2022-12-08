@@ -2,7 +2,7 @@ package src.hust.soict.hedspi.aims.media;
 
 import java.util.ArrayList;
 
-public class CompactDisc extends Disc {
+public class CompactDisc extends Disc implements Playable {
     private String artist;
     private ArrayList<Track> tracks;
 
@@ -40,6 +40,14 @@ public class CompactDisc extends Disc {
             l += track.getLength();
         }
         return l;
+    }
+
+    @Override
+    public void play() {
+        System.out.println("Artist: " + this.getArtist());
+        for (Track track : tracks) {
+            track.play();
+        }
     }
 
 }
