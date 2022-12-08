@@ -54,4 +54,9 @@ public class Disc extends Media {
         return this.getTitle().contains(title);
     }
 
+    @Override
+    public void play() {
+        // TODO Auto-generated method stub
+    }
+
 }
