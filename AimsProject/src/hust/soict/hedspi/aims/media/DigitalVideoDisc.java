@@ -46,31 +46,25 @@ public class DigitalVideoDisc extends Media {
     }
 
     public DigitalVideoDisc(String title) {
+        super(title);
         nbDigitalVideoDiscs++;
-        this.title = title;
     }
 
     public DigitalVideoDisc(String title, String category, float cost) {
+        super(title, category, cost);
         nbDigitalVideoDiscs++;
-        this.title = title;
-        this.category = category;
-        this.cost = cost;
     }
 
     public DigitalVideoDisc(String title, String category, String director, float cost) {
+        super(title, category, cost);
         nbDigitalVideoDiscs++;
         this.director = director;
-        this.title = title;
-        this.category = category;
-        this.cost = cost;
     }
 
     public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
+        super(title, category, cost);
         nbDigitalVideoDiscs++;
         this.director = director;
-        this.title = title;
-        this.category = category;
-        this.cost = cost;
         this.length = length;
     }
 

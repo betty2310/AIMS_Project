@@ -38,4 +38,24 @@ public abstract class Media {
         this.cost = cost;
     }
 
+    public Media() {
+    }
+
+    public Media(String title) {
+        this.title = title;
+    }
+
+    public Media(String title, String category, float cost) {
+        this.title = title;
+        this.category = category;
+        this.cost = cost;
+    }
+
+    public Media(int id, String category, String title, float cost) {
+        this.title = title;
+        this.id = id;
+        this.category = category;
+        this.cost = cost;
+    }
+
 }
