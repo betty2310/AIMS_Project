@@ -1,9 +1,6 @@
 package src.hust.soict.hedspi.aims;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-import java.util.function.IntPredicate;
 
 import src.hust.soict.hedspi.aims.cart.Cart;
 import src.hust.soict.hedspi.aims.media.Book;
@@ -85,6 +82,11 @@ public class Aims {
 
     }
 
+    /**
+     * Init base data for store
+     * 
+     * @param store
+     */
     private static void data(Store store) {
         store.addMedia(new DigitalVideoDisc("The Lion king", "Animation", "A. Pepter", 120, 20.0f));
         Book book1 = new Book("This book title", "Scifi", 15.6f);
@@ -108,6 +110,12 @@ public class Aims {
         store.addMedia(d2);
     }
 
+    /**
+     * Store interface
+     * 
+     * @param store
+     * @param cart  current cart to add media
+     */
     private static void viewStore(Store store, Cart cart) {
         store.printStore();
         while (true) {
@@ -161,6 +169,12 @@ public class Aims {
         }
     }
 
+    /**
+     * Media view to add to cart or play
+     * 
+     * @param res  target media
+     * @param cart current cart to add media
+     */
     private static void handleDetailsMenu(Media res, Cart cart) {
         Scanner input = new Scanner(System.in);
         int choice = input.nextInt();
@@ -177,6 +191,11 @@ public class Aims {
         }
     }
 
+    /**
+     * Cart interface
+     * 
+     * @param cart
+     */
     private static void handleCartMenu(Cart cart) {
         while (true) {
             cartMenu();
@@ -239,6 +258,11 @@ public class Aims {
         }
     }
 
+    /**
+     * Use to add or remove media from store. Currently not support add media
+     * 
+     * @param store
+     */
     private static void updateStore(Store store) {
         System.out.println("Delete a media from store");
         System.out.print("Enter title of media: ");
