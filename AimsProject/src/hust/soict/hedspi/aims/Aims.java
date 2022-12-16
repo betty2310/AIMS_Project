@@ -1,14 +1,10 @@
 package src.hust.soict.hedspi.aims;
 
-import java.util.Scanner;
-
 import src.hust.soict.hedspi.aims.cart.Cart;
-import src.hust.soict.hedspi.aims.media.Book;
-import src.hust.soict.hedspi.aims.media.CompactDisc;
-import src.hust.soict.hedspi.aims.media.DigitalVideoDisc;
-import src.hust.soict.hedspi.aims.media.Media;
-import src.hust.soict.hedspi.aims.media.Track;
+import src.hust.soict.hedspi.aims.media.*;
 import src.hust.soict.hedspi.aims.store.Store;
+
+import java.util.Scanner;
 
 public class Aims {
     public static void showMenu() {
@@ -89,6 +85,7 @@ public class Aims {
      */
     private static void data(Store store) {
         store.addMedia(new DigitalVideoDisc("The Lion king", "Animation", "A. Pepter", 120, 20.0f));
+        store.addMedia(new DigitalVideoDisc("The shape of water", "Action", "J.Camerron", 145, 14.3f));
         Book book1 = new Book("This book title", "Scifi", 15.6f);
         book1.addAuthor("Betty");
         book1.addAuthor("Betty's daughter");

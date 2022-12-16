@@ -1,11 +1,8 @@
 package src.hust.soict.hedspi.aims.store;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
-import javax.print.FlavorException;
-
 import src.hust.soict.hedspi.aims.media.Media;
+
+import java.util.ArrayList;
 
 public class Store {
     private ArrayList<Media> itemsInStore = new ArrayList<Media>();

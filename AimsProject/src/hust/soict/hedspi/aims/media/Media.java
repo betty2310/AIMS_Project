@@ -1,9 +1,9 @@
 package src.hust.soict.hedspi.aims.media;
 
-import java.util.Comparator;
-
 import src.hust.soict.hedspi.aims.utils.MediaComparatorByCostTitle;
 import src.hust.soict.hedspi.aims.utils.MediaComparatorByTitleCost;
+
+import java.util.Comparator;
 
 public abstract class Media {
     private int id;

@@ -1,8 +1,8 @@
 package src.hust.soict.hedspi.aims.utils;
 
-import java.util.Comparator;
-
 import src.hust.soict.hedspi.aims.media.Media;
+
+import java.util.Comparator;
 
 public class MediaComparatorByTitleCost implements Comparator<Media> {
     @Override
