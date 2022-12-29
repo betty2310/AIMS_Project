@@ -1,11 +1,18 @@
 package src.hust.soict.hedspi.aims.cart;
 
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import src.hust.soict.hedspi.aims.media.Media;
 
 import java.util.ArrayList;
 
 public class Cart {
-    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
+
+    public ObservableList<Media> getItemsOrdered() {
+        return itemsOrdered;
+    }
 
     public boolean addMedia(Media media) {
         if (itemsOrdered.contains(media)) {
