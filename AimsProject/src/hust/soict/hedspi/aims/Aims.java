@@ -56,10 +56,7 @@ public class Aims {
     public static void main(String[] args) {
         Cart cart = new Cart();
         Store store = new Store();
-        data(store);
-        while (true) {
-            showMenu();
-            Scanner input = new Scanner(System.in);
+        data(store);while (true) {showMenu();Scanner input = new Scanner(System.in);
             int choice = input.nextInt();
             if (choice == 1) {
                 viewStore(store, cart);
