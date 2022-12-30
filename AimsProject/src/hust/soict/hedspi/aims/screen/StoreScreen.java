@@ -1,14 +1,18 @@
 package src.hust.soict.hedspi.aims.screen;
 
+import src.hust.soict.hedspi.aims.cart.Cart;
 import src.hust.soict.hedspi.aims.media.Media;
 import src.hust.soict.hedspi.aims.store.Store;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class StoreScreen extends JFrame {
     private Store store;
+    private Cart cart = new Cart();
     JPanel createNorth() {
         JPanel north = new JPanel();
         north.setLayout(new BoxLayout(north, BoxLayout.Y_AXIS));
@@ -27,6 +31,7 @@ public class StoreScreen extends JFrame {
         JButton cart = new JButton("View cart");
         cart.setPreferredSize(new Dimension(100, 50));
         cart.setMaximumSize(new Dimension(100, 50));
+        cart.addActionListener(new ButtonListener());
 
         header.add(Box.createRigidArea(new Dimension(10, 10)));
         header.add(title);
@@ -35,6 +40,14 @@ public class StoreScreen extends JFrame {
         header.add(Box.createRigidArea(new Dimension(10, 10)));
 
         return header;
+    }
+
+    private class ButtonListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            CartScreen cartScreen = new CartScreen(cart);
+        }
     }
 
     private JMenuBar createMenuBar() {
@@ -59,7 +72,10 @@ public class StoreScreen extends JFrame {
         center.setLayout(new GridLayout(3, 3, 3, 3));
 
         ArrayList<Media> mediaInStore = store.getItemInStore();
-        for(int i = 0; i < 6; ++i ) {
+        cart.addMedia(mediaInStore.get(1));
+        cart.addMedia(mediaInStore.get(5));
+        cart.addMedia(mediaInStore.get(2));
+        for(int i = 0; i < 9; ++i ) {
             MediaStore cell = new MediaStore(mediaInStore.get(i));
             center.add(cell);
         }

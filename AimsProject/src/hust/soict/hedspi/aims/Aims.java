@@ -8,76 +8,10 @@ import src.hust.soict.hedspi.aims.store.Store;
 import java.util.Scanner;
 
 public class Aims {
-    public static void showMenu() {
-        System.out.println("AIMS: ");
-        System.out.println("---------------");
-        System.out.println("1. View store");
-        System.out.println("2. Update store");
-        System.out.println("3. See current cart");
-        System.out.println("0. Exit");
-        System.out.println("----------------------------");
-        System.out.println("Please choose a number: 0-1-2-3");
-    }
-
-    public static void storeMenu() {
-        System.out.println("Options: ");
-        System.out.println("--------------------------------");
-        System.out.println("1. See a media's details");
-        System.out.println("2. Add a media to cart");
-        System.out.println("3. Play a media");
-        System.out.println("4. See current cart");
-        System.out.println("0. Back");
-        System.out.println("--------------------------------");
-        System.out.println("Please choose a number: 0-1-2-3-4");
-    }
-
-    public static void mediaDetailsMenu() {
-        System.out.println("Options: ");
-        System.out.println("--------------------------------");
-        System.out.println("1. Add to cart");
-        System.out.println("2. Play");
-        System.out.println("0. Back");
-        System.out.println("--------------------------------");
-        System.out.println("Please choose a number: 0-1-2");
-    }
-
-    public static void cartMenu() {
-        System.out.println("Options: ");
-        System.out.println("--------------------------------");
-        System.out.println("1. Filter medias in cart");
-        System.out.println("2. Sort medias in cart");
-        System.out.println("3. Remove media from cart");
-        System.out.println("4. Play a media");
-        System.out.println("5. Place order");
-        System.out.println("0. Back");
-        System.out.println("--------------------------------");
-        System.out.println("Please choose a number: 0-1-2-3-4-5");
-    }
-
     public static void main(String[] args) {
-        Cart cart = new Cart();
         Store store = new Store();
         data(store);
         StoreScreen screen = new StoreScreen(store);
-        while (true) {
-            showMenu();
-            Scanner input = new Scanner(System.in);
-            int choice = input.nextInt();
-            if (choice == 1) {
-                viewStore(store, cart);
-            }
-            if (choice == 2) {
-                updateStore(store);
-            }
-            if (choice == 3) {
-                cart.prinCast();
-                handleCartMenu(cart);
-            }
-            if (choice == 0) {
-                break;
-            }
-        }
-
     }
 
     /**
@@ -88,6 +22,7 @@ public class Aims {
     private static void data(Store store) {
         store.addMedia(new DigitalVideoDisc("The Lion king", "Animation", "A. Pepter", 120, 20.0f));
         store.addMedia(new DigitalVideoDisc("The shape of water", "Action", "J.Camerron", 145, 14.3f));
+        store.addMedia(new DigitalVideoDisc("The Fallen kingdom", "Action", "Mical Bay", 145, 14.3f));
         Book book1 = new Book("This book title", "Scifi", 15.6f);
         book1.addAuthor("Betty");
         book1.addAuthor("Betty's daughter");
@@ -105,6 +40,9 @@ public class Aims {
         CompactDisc d2 = new CompactDisc("Folkerlore", "Rock", 11.4f, "Brave", "Blake");
         d2.addTrack(new Track("Stay", 12));
         d2.addTrack(new Track("Move on", 11));
+        Book book4 = new Book("The Hobbit part 2", "Adventure", 21.6f);
+        book4.addAuthor("JR.Tolkien");
+        store.addMedia(book4);
         store.addMedia(d1);
         store.addMedia(d2);
     }
@@ -118,7 +56,6 @@ public class Aims {
     private static void viewStore(Store store, Cart cart) {
         store.printStore();
         while (true) {
-            storeMenu();
             Scanner input = new Scanner(System.in);
             int choice = input.nextInt();
             if (choice == 1) {
@@ -128,7 +65,6 @@ public class Aims {
                 Media res = store.searchStore(st);
                 if (res != null) {
                     System.out.println(res.toString());
-                    mediaDetailsMenu();
                     handleDetailsMenu(res, cart);
                 } else {
                     System.out.println("Not found");
@@ -197,7 +133,6 @@ public class Aims {
      */
     private static void handleCartMenu(Cart cart) {
         while (true) {
-            cartMenu();
             Scanner input = new Scanner(System.in);
             int choice = input.nextInt();
             if (choice == 1) {
