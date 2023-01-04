@@ -1,5 +1,8 @@
 package src.hust.soict.hedspi.aims.media;
 
+import javax.swing.*;
+import java.awt.*;
+
 public class DigitalVideoDisc extends Disc implements Playable {
 
     public DigitalVideoDisc(String string, String string2, String string3, int i, float f) {
@@ -7,8 +10,9 @@ public class DigitalVideoDisc extends Disc implements Playable {
     }
 
     public void play() {
-        System.out.println("Playing DVD: " + this.getTitle());
-        System.out.println("DVD length: " + this.getLength());
+        JFrame j = new JFrame();
+        String text =  "Playing DVD: " + this.getTitle() + "\nDVD length: " + this.getLength();
+        JOptionPane.showMessageDialog(j, text, "Play Media", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @Override

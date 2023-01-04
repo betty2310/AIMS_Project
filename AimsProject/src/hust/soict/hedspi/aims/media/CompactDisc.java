@@ -1,5 +1,6 @@
 package src.hust.soict.hedspi.aims.media;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class CompactDisc extends Disc implements Playable {
@@ -44,10 +45,13 @@ public class CompactDisc extends Disc implements Playable {
 
     @Override
     public void play() {
-        System.out.println("Artist: " + this.getArtist());
+        StringBuilder text = new StringBuilder("Artist: " + this.getArtist() + "\n");
         for (Track track : tracks) {
-            track.play();
+            text.append(track.getTitle() + " - " + track.getLength() + "\n");
         }
+
+        JDialog dialog = new JDialog();
+        JOptionPane.showMessageDialog(dialog, text.toString(), "Media Play", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @Override
