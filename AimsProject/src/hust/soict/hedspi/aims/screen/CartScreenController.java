@@ -90,4 +90,8 @@ public class CartScreenController {
         Media media = tblMedia.getSelectionModel().getSelectedItem();
         cart.removeMedia(media);
     }
+
+    public void btOrderPressed(javafx.event.ActionEvent actionEvent) {
+        cart.newCart();
+    }
 }

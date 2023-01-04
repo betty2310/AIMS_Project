@@ -111,11 +111,11 @@
                      </font>
                   </Label>
                </children></HBox>
-            <Label style="-fx-background-color: red;" text="Place Order" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#btOrderPressed" style="-fx-background-color: red;" text="Place Order" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
-            </Label>
+            </Button>
          </children>
       </VBox>
    </right>
