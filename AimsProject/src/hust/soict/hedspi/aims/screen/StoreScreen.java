@@ -1,5 +1,6 @@
 package src.hust.soict.hedspi.aims.screen;
 
+import src.hust.soict.hedspi.aims.Aims;
 import src.hust.soict.hedspi.aims.cart.Cart;
 import src.hust.soict.hedspi.aims.media.Media;
 import src.hust.soict.hedspi.aims.store.Store;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 
 public class StoreScreen extends JFrame {
     private Store store;
-    private Cart cart = new Cart();
+    private Cart cart = Aims.cart;
     JPanel createNorth() {
         JPanel north = new JPanel();
         north.setLayout(new BoxLayout(north, BoxLayout.Y_AXIS));
@@ -31,7 +32,9 @@ public class StoreScreen extends JFrame {
         JButton cart = new JButton("View cart");
         cart.setPreferredSize(new Dimension(100, 50));
         cart.setMaximumSize(new Dimension(100, 50));
-        cart.addActionListener(new ButtonListener());
+        cart.addActionListener(e->{
+            CartScreen cartScreen = new CartScreen(this.cart);
+        });
 
         header.add(Box.createRigidArea(new Dimension(10, 10)));
         header.add(title);
@@ -40,14 +43,6 @@ public class StoreScreen extends JFrame {
         header.add(Box.createRigidArea(new Dimension(10, 10)));
 
         return header;
-    }
-
-    private class ButtonListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            CartScreen cartScreen = new CartScreen(cart);
-        }
     }
 
     private JMenuBar createMenuBar() {
