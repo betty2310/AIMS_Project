@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import src.hust.soict.hedspi.aims.cart.Cart;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 
 public class CartScreen extends JFrame {
@@ -20,6 +21,8 @@ public class CartScreen extends JFrame {
 
         this.setTitle("Cart");
         this.setVisible(true);
+
+        this.setSize(new Dimension(1024, 768));
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -28,8 +31,8 @@ public class CartScreen extends JFrame {
                     CartScreenController controller = new CartScreenController(cart);
                     loader.setController(controller);
                     Parent root = loader.load();
-                    fxPanel.setSize(1000, 700);
-                    fxPanel.setScene(new Scene(root));
+                    Scene scene = new Scene(root);
+                    fxPanel.setScene(scene);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
