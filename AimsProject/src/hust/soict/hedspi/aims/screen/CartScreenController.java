@@ -3,14 +3,18 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import src.hust.soict.hedspi.aims.Aims;
 import src.hust.soict.hedspi.aims.cart.Cart;
 import src.hust.soict.hedspi.aims.media.Media;
 import src.hust.soict.hedspi.aims.media.Playable;
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 public class CartScreenController {
     private Cart cart;
@@ -68,6 +72,7 @@ public class CartScreenController {
                    if(newValue != null)  {
                        updateButton(newValue);
                    }
+                   totalCost.setText(Float.toString(cart.totalCost()) + "$");
                 }
         );
     }
@@ -93,5 +98,14 @@ public class CartScreenController {
 
     public void btOrderPressed(javafx.event.ActionEvent actionEvent) {
         cart.newCart();
+    }
+
+    public void updateStore(javafx.event.ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("UpdateStoreScreen.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = new Stage();
+        stage.setTitle("Update Store");
+        stage.setScene(scene);
+        stage.show();
     }
 }
