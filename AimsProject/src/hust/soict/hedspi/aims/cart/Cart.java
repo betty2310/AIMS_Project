@@ -49,31 +49,6 @@ public class Cart {
         System.out.println("Total cost: " + totalCost() + "\n***************************************************");
 
     }
-
-    // public void searchDVDByID() {
-    // Scanner sc = new Scanner(System.in);
-    // System.out.print("Enter the ID of the DVD: ");
-    // String id = sc.nextLine();
-    // Integer idInt = Integer.parseInt(id);
-    // if (idInt < qtyOrdered) {
-    // System.out.println("The DVD is in the cart!");
-    // } else {
-    // System.out.println("The DVD is not in the cart!");
-    // }
-    // }
-
-    // public void searchDVDByTitle() {
-    // Scanner sc = new Scanner(System.in);
-    // System.out.print("Enter the Title of the DVD: ");
-    // String title = sc.nextLine();
-    // for (int i = 0; i < qtyOrdered; ++i) {
-    // if (itemsOrdered[i].isMatch(title)) {
-    // System.out.println("The DVD is in the cart!");
-    // return;
-    // }
-    // }
-    // System.out.println("The DVD is not in the cart!");
-    // }
     public void sortCartByTitle() {
         itemsOrdered.sort(Media.COMPARE_BY_TITLE_COST);
     }
