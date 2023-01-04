@@ -1,5 +1,6 @@
 package src.hust.soict.hedspi.aims.screen;
 
+import src.hust.soict.hedspi.aims.Aims;
 import src.hust.soict.hedspi.aims.media.Media;
 import src.hust.soict.hedspi.aims.media.Playable;
 
@@ -20,10 +21,15 @@ public class MediaStore extends JPanel {
 
         JPanel container = new JPanel();
         container.setLayout(new FlowLayout(FlowLayout.CENTER));
-        container.add(new JButton("Add to cart"));
+        JButton btAddToCart = new JButton("Add to cart");
+        btAddToCart.addActionListener(e->{
+            Aims.cart.addMedia(this.media);
+        });
+        container.add(btAddToCart);
 
+        JButton btPlay = new JButton("Play");
         if(media instanceof Playable) {
-            container.add(new JButton("Play"));
+            container.add(btPlay);
         }
 
         this.add(Box.createVerticalGlue());
