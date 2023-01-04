@@ -85,8 +85,8 @@
             </TableView>
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
               <buttons>
-                <Button fx:id="btPlay" mnemonicParsing="false" text="Play" />
-                  <Button fx:id="btRemove" mnemonicParsing="false" text="Remove" />
+                <Button fx:id="btPlay" mnemonicParsing="false" onAction="#btPlayPressed" text="Play" />
+                  <Button fx:id="btRemove" mnemonicParsing="false" onAction="#btRemovePressed" text="Remove" />
               </buttons>
             </ButtonBar>
          </children>
@@ -105,7 +105,7 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label text="0 $">
+                  <Label fx:id="totalCost" text="0 $">
                      <font>
                         <Font size="24.0" />
                      </font>

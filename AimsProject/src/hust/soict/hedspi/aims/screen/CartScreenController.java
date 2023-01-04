@@ -2,14 +2,14 @@ package src.hust.soict.hedspi.aims.screen;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import src.hust.soict.hedspi.aims.Aims;
 import src.hust.soict.hedspi.aims.cart.Cart;
 import src.hust.soict.hedspi.aims.media.Media;
 import src.hust.soict.hedspi.aims.media.Playable;
+
+import java.awt.event.ActionEvent;
 
 public class CartScreenController {
     private Cart cart;
@@ -19,6 +19,9 @@ public class CartScreenController {
 
     @FXML
     private Button btPlay;
+
+    @FXML
+    private Label totalCost;
 
     @FXML
     private TableColumn<Media,  Float> colMediaCost;
@@ -68,4 +71,11 @@ public class CartScreenController {
         }
     }
 
+    public void btPlayPressed(javafx.event.ActionEvent actionEvent) {
+    }
+
+    public void btRemovePressed(javafx.event.ActionEvent actionEvent) {
+        Media media = tblMedia.getSelectionModel().getSelectedItem();
+        cart.removeMedia(media);
+    }
 }
