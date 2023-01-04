@@ -2,15 +2,19 @@ package src.hust.soict.hedspi.aims;
 
 import src.hust.soict.hedspi.aims.cart.Cart;
 import src.hust.soict.hedspi.aims.media.*;
+import src.hust.soict.hedspi.aims.screen.CartScreen;
 import src.hust.soict.hedspi.aims.screen.StoreScreen;
 import src.hust.soict.hedspi.aims.store.Store;
 
 import java.util.Scanner;
 
 public class Aims {
+    public static Store store;
+    public static Cart cart;
     public static void main(String[] args) {
-        Store store = new Store();
-        data(store);
+        store = new Store();
+        initData(store);
+        cart = new Cart();
         StoreScreen screen = new StoreScreen(store);
     }
 
@@ -19,7 +23,7 @@ public class Aims {
      * 
      * @param store
      */
-    private static void data(Store store) {
+    private static void initData(Store store) {
         store.addMedia(new DigitalVideoDisc("The Lion king", "Animation", "A. Pepter", 120, 20.0f));
         store.addMedia(new DigitalVideoDisc("The shape of water", "Action", "J.Camerron", 145, 14.3f));
         store.addMedia(new DigitalVideoDisc("The Fallen kingdom", "Action", "Mical Bay", 145, 14.3f));
