@@ -1,6 +1,7 @@
 package src.hust.soict.hedspi.aims.screen;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -38,6 +39,8 @@ public class CartScreenController {
     @FXML
     private TableView<Media> tblMedia;
 
+    private String cost;
+
     public CartScreenController(Cart cart) {
         super();
         this.cart = cart;
@@ -52,6 +55,13 @@ public class CartScreenController {
 
         btPlay.setVisible(false);
         btRemove.setVisible(false);
+
+
+//        tblMedia.getItems().addListener((ListChangeListener<? super Media>) e->{
+//            this.cost = Float.toString(cart.totalCost()) + "$";
+//            totalCost.setText(cost);
+//        });
+
 
         tblMedia.getSelectionModel().selectedItemProperty().addListener(
                 (observableValue, oldValue, newValue) -> {
@@ -72,6 +82,8 @@ public class CartScreenController {
     }
 
     public void btPlayPressed(javafx.event.ActionEvent actionEvent) {
+        Media media = tblMedia.getSelectionModel().getSelectedItem();
+        media.play();
     }
 
     public void btRemovePressed(javafx.event.ActionEvent actionEvent) {
