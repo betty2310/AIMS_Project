@@ -28,6 +28,9 @@ public class MediaStore extends JPanel {
         container.add(btAddToCart);
 
         JButton btPlay = new JButton("Play");
+        btPlay.addActionListener(e -> {
+            media.play();
+        });
         if(media instanceof Playable) {
             container.add(btPlay);
         }

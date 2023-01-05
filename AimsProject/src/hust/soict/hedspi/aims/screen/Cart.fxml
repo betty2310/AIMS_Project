@@ -25,13 +25,7 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Options">
                   <items>
-                      <Menu mnemonicParsing="false" text="Update Store">
-                        <items>
-                          <MenuItem mnemonicParsing="false" text="Add Book" />
-                              <MenuItem mnemonicParsing="false" text="Add CD" />
-                              <MenuItem mnemonicParsing="false" text="Add DVD" />
-                        </items>
-                      </Menu>
+                        <MenuItem mnemonicParsing="false" onAction="#updateStore" text="Update Store" />
                     <MenuItem mnemonicParsing="false" text="View Store" />
                         <MenuItem mnemonicParsing="false" text="View Cart" />
                   </items>
@@ -111,11 +105,11 @@
                      </font>
                   </Label>
                </children></HBox>
-            <Label style="-fx-background-color: red;" text="Place Order" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#btOrderPressed" style="-fx-background-color: red;" text="Place Order" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
-            </Label>
+            </Button>
          </children>
       </VBox>
    </right>
