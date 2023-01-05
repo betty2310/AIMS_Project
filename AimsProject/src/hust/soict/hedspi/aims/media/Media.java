@@ -66,11 +66,11 @@ public abstract class Media {
         this.cost = cost;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        // TODO Auto-generated method stub
-        return this.title == ((Media) obj).title;
-    }
+//    @Override
+//    public boolean equals(Object obj) {
+//        // TODO Auto-generated method stub
+//        return this.title == ((Media) obj).title;
+//    }
 
     public boolean isMatch(String st) {
         if (this.title.equals(st))

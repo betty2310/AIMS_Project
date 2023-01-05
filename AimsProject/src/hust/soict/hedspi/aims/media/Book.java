@@ -51,6 +51,5 @@ public class Book extends Media {
     }
 
     public void play() {
-        System.out.println("Book doesn't play");
     }
 }

@@ -1,11 +1,23 @@
 package src.hust.soict.hedspi.aims.cart;
 
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import src.hust.soict.hedspi.aims.media.Media;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Cart {
-    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
+
+    public ObservableList<Media> getItemsOrdered() {
+        return itemsOrdered;
+    }
 
     public boolean addMedia(Media media) {
         if (itemsOrdered.contains(media)) {
@@ -42,31 +54,6 @@ public class Cart {
         System.out.println("Total cost: " + totalCost() + "\n***************************************************");
 
     }
-
-    // public void searchDVDByID() {
-    // Scanner sc = new Scanner(System.in);
-    // System.out.print("Enter the ID of the DVD: ");
-    // String id = sc.nextLine();
-    // Integer idInt = Integer.parseInt(id);
-    // if (idInt < qtyOrdered) {
-    // System.out.println("The DVD is in the cart!");
-    // } else {
-    // System.out.println("The DVD is not in the cart!");
-    // }
-    // }
-
-    // public void searchDVDByTitle() {
-    // Scanner sc = new Scanner(System.in);
-    // System.out.print("Enter the Title of the DVD: ");
-    // String title = sc.nextLine();
-    // for (int i = 0; i < qtyOrdered; ++i) {
-    // if (itemsOrdered[i].isMatch(title)) {
-    // System.out.println("The DVD is in the cart!");
-    // return;
-    // }
-    // }
-    // System.out.println("The DVD is not in the cart!");
-    // }
     public void sortCartByTitle() {
         itemsOrdered.sort(Media.COMPARE_BY_TITLE_COST);
     }
@@ -96,10 +83,19 @@ public class Cart {
         return null;
     }
 
+    /**
+     * Can't use JOptionPane from Swing because we involve from JavaFX frame. So,
+     * use `Alert` which is alternative in JavaFX
+     */
     public void newCart() {
-        // remove all items in itemsOrderd;
+        String text =  Float.toString(totalCost()) + "$";
         itemsOrdered.clear();
-
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(text);
+        alert.setHeaderText("Total payment: ");
+        alert.setTitle("Order");
+        alert.getButtonTypes().setAll(ButtonType.OK);
+        alert.showAndWait();
     }
 
 }
