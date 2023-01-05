@@ -23,6 +23,8 @@ public class CartScreen extends JFrame {
         this.setVisible(true);
 
         this.setSize(new Dimension(1024, 768));
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         Platform.runLater(new Runnable() {
             @Override
             public void run() {

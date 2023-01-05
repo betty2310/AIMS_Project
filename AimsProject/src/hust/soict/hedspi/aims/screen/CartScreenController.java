@@ -1,4 +1,6 @@
 package src.hust.soict.hedspi.aims.screen;
+
+import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
@@ -29,7 +31,7 @@ public class CartScreenController {
     private Label totalCost;
 
     @FXML
-    private TableColumn<Media,  Float> colMediaCost;
+    private TableColumn<Media, Float> colMediaCost;
 
     @FXML
     private TableColumn<Media, String> colMediaTitle;
@@ -60,24 +62,21 @@ public class CartScreenController {
         btPlay.setVisible(false);
         btRemove.setVisible(false);
 
-
-//        tblMedia.getItems().addListener((ListChangeListener<? super Media>) e->{
-//            this.cost = Float.toString(cart.totalCost()) + "$";
-//            totalCost.setText(cost);
-//        });
-
-
+        /**
+         * We can not handle listener in `tblMedia` rows update, because it conflicts thread with Swing from `StoreScreen`
+         * add Listener when selectItem seem to be tricky
+         */
         tblMedia.getSelectionModel().selectedItemProperty().addListener(
                 (observableValue, oldValue, newValue) -> {
-                   if(newValue != null)  {
-                       updateButton(newValue);
-                   }
+                    if (newValue != null) {
+                        updateButton(newValue);
+                    }
                    totalCost.setText(Float.toString(cart.totalCost()) + "$");
                 }
         );
     }
 
-    void updateButton(Media media)  {
+    void updateButton(Media media) {
         btRemove.setVisible(true);
         if (media instanceof Playable) {
             btPlay.setVisible(true);
